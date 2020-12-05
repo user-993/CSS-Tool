@@ -2,6 +2,11 @@
   --green:#007000;
   --white: #f2f2f2;
 
+  --offset-x: 0px;
+  --offset-y: 0px;
+  --blur-radius: 0px;
+  --spread-radius: 0px;
+  --opacity: 1;
 }
 
 html {
@@ -120,7 +125,7 @@ body {
   height: 55vh;
   width: 55vh;
   background: var(--green);
-  box-shadow: ;
+  box-shadow: var(--offset-x) var(--offset-y) var(--blur-radius) var(--spread-radius) rgba(0, 0, 0, var(--opacity));
   
 }
 
