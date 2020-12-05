@@ -6,7 +6,11 @@
   --offset-y: 0px;
   --blur-radius: 0px;
   --spread-radius: 0px;
-  --opacity: 1;
+  --opacity: 0.75;
+
+  --shadow-color: #000000;
+  --background-color: #ffffff;
+  --box-color: #007000;
 }
 
 html {
@@ -145,7 +149,7 @@ body {
   color: var(--green);
 }
 
-.copy-btn {
+#copy-btn {
   width: 12vw;
   height: 5vh;
   
