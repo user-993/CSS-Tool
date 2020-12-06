@@ -36,15 +36,56 @@ inputs.forEach(input => input.addEventListener('mousemove', handleNumbers));
 
 /*-------------------------------------------------------------------------------------------------------------*/
 
+/* COPY BTN */
+
+/* Udělá výstup jako text bez html tags */
+function handleCopyBtn () {
+  document.getElementById("copy-btn").onclick = function() {
+    /*
+    var oblast = document.getElementById("textarea");
+    var text = oblast.innerText; /* oblast.textContent ||  */
+    
+    var text = document.getElementById("textarea").innerText;
+    console.log(text);
+    
+
+    /*console.log(oblast);*/
+    
+    var copyText = document.getElementById("pokus");
+    copyText.value = text;
+    copyText.select();
+    document.execCommand("copy");
+
+  }
+  
+}
+
+inputs.forEach(input => input.addEventListener('change', handleCopyBtn));
+inputs.forEach(input => input.addEventListener('mousemove', handleCopyBtn));
+
+
+
+
+/*
+document.getElementById("copy-btn").onclick = function(){
+
+  document.getElementById("textarea").select();
+  document.execCommand('copy');
+}
+
+*/
+
+
+/*-------------------------------------------------------------------------------------------------------------*/
+
+
 var color = document.getElementById("base1");
 var colorCode = color.value;
 console.log(colorCode);
 
-
-
-/* Získám HEX color kód */
+/* Získám HEX color kód, který se napíše do input okna */
 function getHexColorCode() { 
-document.getElementById("demo6").innerHTML = color.value;
+document.getElementById("shadow").value = color.value; /* document.getElementById("shadow").innerHTML = color.value; */
 }
 
 /* Udělá z HEX color kódu RGB color kód */
@@ -62,28 +103,40 @@ function getRgbColorCode() {
   // 6 digits
   } else if (h.length == 7) {
     r = "0x" + h[1] + h[2];
-    
-
     g = "0x" + h[3] + h[4];
-    var green = (h[3] + h[4]);
-
     b = "0x" + h[5] + h[6];
-    var blue = (h[5] + h[6]);
+  }
+  
+  // RGB kód, např. rgb(106,37,37)
+  rgbValue = ("rgb("+ +r + "," + +g + "," + +b + ")");
+  
+  // Udělá z rgbValue object
+  function getRGB(str){
+    var match = str.match(/rgba?\((\d{1,3}), ?(\d{1,3}), ?(\d{1,3})\)?(?:, ?(\d(?:\.\d?))\))?/);
+    return match ? {
+      red: match[1],
+      green: match[2],
+      blue: match[3]
+    } : {};
   }
 
- 
+  const barvicky = getRGB(rgbValue);
+
+  // Získám jednotlivé hodnoty barev (red, green, blue) v RGB
+  const redCode = barvicky[Object.keys(barvicky)[0]];
+  const greenCode = barvicky[Object.keys(barvicky)[1]];
+  const blueCode = barvicky[Object.keys(barvicky)[2]];
 
 
-  console.log(green);
-  console.log(blue);
+  // Přepíše hodnoty rgb napravo
+  var redColors = document.querySelectorAll('.main-content .demo6');
+  redColors.forEach(redColor => redColor.innerHTML = redCode);
+  var greenColors = document.querySelectorAll('.main-content .demo7');
+  greenColors.forEach(greenColor => greenColor.innerHTML = greenCode);
+  var blueColors = document.querySelectorAll('.main-content .demo8');
+  blueColors.forEach(blueColor => blueColor.innerHTML = blueCode);
 
-  
-  console.log("rgb("+ +r + "," + +g + "," + +b + ")");
-  /* Přepsání hodnot v HTML */
-  
-  
-  
- 
+
 
 }
 
@@ -92,8 +145,15 @@ color.addEventListener("input", getHexColorCode);
 color.addEventListener("input", getRgbColorCode);
 
 
-var oblast = document.getElementById("textarea").innerHTML;
+/*
+var oblast = document.getElementById("textarea");
+var text = oblast.innerText; /* oblast.textContent ||  */
+/*
+oblast.innerHTML = text;
+
 console.log(oblast);
+console.log(text);
+*/
 
 /*-------------------------------------------------------------------------------------------------------------*/
 
