@@ -7,6 +7,7 @@ function handleUpdate() {
 
 inputs.forEach(input => input.addEventListener('change', handleUpdate));
 inputs.forEach(input => input.addEventListener('mousemove', handleUpdate));
+/* inputs.forEach(input => input.addEventListener('input', handleUpdate)); */
 
 /*-------------------------------------------------------------------------------------------------------------*/
 
@@ -14,19 +15,19 @@ function handleNumbers() { /* Přepíše na všech potřebných místech aktuál
   const poradi = this.dataset.order; /* data-order */
   
   if (poradi === '1') {
-    var ys = document.querySelectorAll('.main-content .demo1');
+    var ys = document.querySelectorAll('.border-shadow-content .demo1');
     ys.forEach(y => y.innerHTML = this.value);
   } else if (poradi === '2') {
-    var ys = document.querySelectorAll('.main-content .demo2');
+    var ys = document.querySelectorAll('.border-shadow-content .demo2');
     ys.forEach(y => y.innerHTML = this.value);
   } else if (poradi === '3') {
-    var ys = document.querySelectorAll('.main-content .demo3');
+    var ys = document.querySelectorAll('.border-shadow-content .demo3');
     ys.forEach(y => y.innerHTML = this.value);
   } else if (poradi === '4') {
-    var ys = document.querySelectorAll('.main-content .demo4');
+    var ys = document.querySelectorAll('.border-shadow-content .demo4');
     ys.forEach(y => y.innerHTML = this.value);
   } else if (poradi === '5') {
-    var ys = document.querySelectorAll('.main-content .demo5');
+    var ys = document.querySelectorAll('.border-shadow-content .demo5');
     ys.forEach(y => y.innerHTML = this.value);
   }
 }
@@ -52,7 +53,9 @@ function handleCopyBtn () {
     /*console.log(oblast);*/
     
     var copyText = document.getElementById("pokus");
+    
     copyText.value = text;
+    console.log(copyText.value);
     copyText.select();
     document.execCommand("copy");
 
@@ -86,6 +89,7 @@ console.log(colorCode);
 /* Získám HEX color kód, který se napíše do input okna */
 function getHexColorCode() { 
 document.getElementById("shadow").value = color.value; /* document.getElementById("shadow").innerHTML = color.value; */
+console.log(color.value);
 }
 
 /* Udělá z HEX color kódu RGB color kód */
@@ -127,22 +131,104 @@ function getRgbColorCode() {
   const greenCode = barvicky[Object.keys(barvicky)[1]];
   const blueCode = barvicky[Object.keys(barvicky)[2]];
 
-
+  
   // Přepíše hodnoty rgb napravo
-  var redColors = document.querySelectorAll('.main-content .demo6');
+  var redColors = document.querySelectorAll('.border-shadow-content .demo6');
   redColors.forEach(redColor => redColor.innerHTML = redCode);
-  var greenColors = document.querySelectorAll('.main-content .demo7');
+  document.documentElement.style.setProperty('--red', redCode);
+  
+
+  var greenColors = document.querySelectorAll('.border-shadow-content .demo7');
   greenColors.forEach(greenColor => greenColor.innerHTML = greenCode);
-  var blueColors = document.querySelectorAll('.main-content .demo8');
+  document.documentElement.style.setProperty('--green', greenCode);
+
+  var blueColors = document.querySelectorAll('.border-shadow-content .demo8');
   blueColors.forEach(blueColor => blueColor.innerHTML = blueCode);
+  document.documentElement.style.setProperty('--blue', blueCode);
 
-
+  
 
 }
 
 /* Event listeners */
 color.addEventListener("input", getHexColorCode);
 color.addEventListener("input", getRgbColorCode);
+
+/*-------------------------------------------------------------------------------------------------------------*/
+
+// BACKGROUND COLOR 
+
+// Background color input field
+var backgroundColor = document.getElementById("base2"); 
+
+// Function for getting the current HEX color code and making the actual background color change
+function getHexBackgroundColorCode() { 
+  document.getElementById("background-color").value = backgroundColor.value; /* document.getElementById("shadow").innerHTML = color.value; */
+}
+
+// Event listener for input, which triggers the function getHexBackgroundColorCode
+backgroundColor.addEventListener("input", getHexBackgroundColorCode);
+
+/*-------------------------------------------------------------------------------------------------------------*/
+
+// BOX COLOR 
+
+// Box color input field
+var boxColor = document.getElementById("base3"); 
+
+// Function for getting the current HEX color code and making the actual box color change
+function getHexBoxColorCode() { 
+  document.getElementById("box-color").value = boxColor.value; /* document.getElementById("shadow").innerHTML = color.value; */
+}
+
+// Event listener for input, which triggers the function getHexBoxColorCode
+boxColor.addEventListener("input", getHexBoxColorCode);
+
+
+
+/*-------------------------------------------------------------------------------------------------------------*/
+
+// SWITCHING PAGES - BORDER RADIUS x BOX SHADOW
+
+// Targeting the Border radius and Border shadow pages = contents
+const borderRadiusPage = document.getElementById('border-radius-page');
+const borderShadowPage = document.getElementById('border-shadow-page');
+
+// Targeting the buttons for Border radius and Border shadow pages
+const borderRadiusBtn = document.getElementById('border-radius-btn');
+const borderShadowBtn = document.getElementById('border-shadow-btn');
+
+// Function for turning to Border radius page
+function toBorderRadiusPage() {
+  borderShadowPage.classList.add('hide');
+  borderRadiusPage.classList.remove('hide');
+};
+
+// Function for turning to Border shadow page
+function toBorderShadowPage() {
+  borderRadiusPage.classList.add('hide');
+  borderShadowPage.classList.remove('hide');
+};
+
+// Event listeners for turning to Border radius or Border shadow page
+borderRadiusBtn.addEventListener('click', toBorderRadiusPage);
+borderShadowBtn.addEventListener('click', toBorderShadowPage);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 /*

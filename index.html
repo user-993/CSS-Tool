@@ -12,11 +12,11 @@
 <body>
   <div class="container">
     <div class="navigation">
-      <button class="main-btn">Border Radius</button>
-      <button class="main-btn">Box Shadow</button>
+      <button id="border-radius-btn" class="main-btn">Border Radius</button>
+      <button id="border-shadow-btn" class="main-btn">Box Shadow</button>
     </div>
 
-    <div class="main-content">
+    <div id="border-shadow-page" class="border-shadow-content">
       <div class="variables">
 
         <div class="slidecontainer">
@@ -65,27 +65,25 @@
         <div class="color-picker">
           <div class="line">
             <h2>Shadow Color</h2><input type="text" value="#000000" id="shadow">
-  
+
           </div>
           <input id="base1" type="color" name="shadow-color" value="#000000">
         </div>
         <br>
 
-
-
-
-
         <div class="color-picker">
           <div class="line">
-            <h2>Background Color</h2>
+            <h2>Background Color</h2><input type="text" value="#f2f2f2" id="background-color">
+
           </div>
-          <input id="base2" type="color" name="background-color" value="#ffffff">
+          <input id="base2" type="color" name="background-color" value="#f2f2f2">
         </div>
         <br>
 
         <div class="color-picker">
           <div class="line">
-            <h2>Box Color</h2>
+            <h2>Box Color</h2><input type="text" value="#007000" id="box-color">
+
           </div>
           <input id="base3" type="color" name="box-color" value="#007000">
         </div>
@@ -104,10 +102,114 @@
           
           <h2 id="textarea">
             -webkit-box-shadow: <span class="demo1">0</span>px <span class="demo2">0</span>px <span class="demo3">0</span>px <span class="demo4">0</span>px rgba(<span class="demo6">0</span>,<span class="demo7">0</span>,<span class="demo8">0</span>,<span class="demo5">0</span>);
-            <br>
+            <br />
             -moz-box-shadow: <span class="demo1">0</span>px <span class="demo2">0</span>px <span class="demo3">0</span>px <span class="demo4">0</span>px rgba(<span class="demo6">0</span>,<span class="demo7">0</span>,<span class="demo8">0</span>,<span class="demo5">0</span>);
-            <br>
+            <br />
             box-shadow: <span class="demo1">0</span>px <span class="demo2">0</span>px <span class="demo3">0</span>px <span class="demo4">0</span>px rgba(<span class="demo6">0</span>,<span class="demo7">0</span>,<span class="demo8">0</span>,<span class="demo5">0</span>);
+          </h2>
+
+          <input type="text" value="" id="pokus" class="hidden">
+          
+        </div>
+
+        
+        
+
+        <div>
+          <button id="copy-btn">Copy</button>
+        </div>
+      </div>
+    </div>
+
+    <div id="border-radius-page" class="border-radius-content hide">
+      <div class="variables">
+
+        <div class="slidecontainer">
+          <div class="line">
+            <h2>Horizontal Length</h2><p><span class="demo1">0</span> px</p>
+          </div>
+          <input type="range" name="offset-x" min="-200" max="200" value="0" class="slider" id="myRange1" data-sizing="px" data-order="1">
+        </div>
+        <br>
+
+        <div class="slidecontainer">
+          <div class="line">
+            <h2>Vertical Length</h2><p><span class="demo2">0</span> px</p>
+          </div>
+          <input type="range" name="offset-y" min="-200" max="200" value="0" class="slider" id="myRange2" data-sizing="px" data-order="2">
+        </div>
+        <br>
+
+        <div class="slidecontainer">
+          <div class="line">
+            <h2>Blur Radius</h2><p><span class="demo3">0</span> px</p>
+          </div>
+          <input type="range" name="blur-radius" min="0" max="300" value="0" class="slider" id="myRange3" data-sizing="px" data-order="3">
+        </div>
+        <br>
+
+        <div class="slidecontainer">
+          <div class="line">
+            <h2>Spread Radius</h2><p><span class="demo4">0</span> px</p>
+          </div>
+          <input type="range" name="spread-radius" min="0" max="200" value="0" class="slider" id="myRange4" data-sizing="px" data-order="4">
+        </div>
+        <br>
+
+        <div class="slidecontainer">
+          <div class="line">
+            <h2>Opacity</h2><p><span id="opa" class="demo5">0.75</span></p>
+          </div>
+          <input type="range" name="opacity" min="0.00" max="1.00" step="0.01" value="0.75" class="slider" id="myRange5" data-order="5">
+        </div>
+        <br>
+
+
+
+
+        <div class="color-picker">
+          <div class="line">
+            <h2>Shadow Color</h2><input type="text" value="#000000" id="shadow">
+
+          </div>
+          <input id="base1" type="color" name="shadow-color" value="#000000">
+        </div>
+        <br>
+
+        <div class="color-picker">
+          <div class="line">
+            <h2>Background Color</h2><input type="text" value="#f2f2f2" id="background-color">
+
+          </div>
+          <input id="base2" type="color" name="background-color" value="#f2f2f2">
+        </div>
+        <br>
+
+        <div class="color-picker">
+          <div class="line">
+            <h2>Box Color</h2><input type="text" value="#007000" id="box-color">
+
+          </div>
+          <input id="base3" type="color" name="box-color" value="#007000">
+        </div>
+        <br>
+
+      </div>
+
+      <div class="box">
+        <div id="big-box">
+
+        </div>
+      </div>
+
+      <div class="output">
+        <div>
+          
+          <h2 id="textarea">
+            
+            <br />
+            
+            
           </h2>
 
           <input type="text" value="" id="pokus" class="hidden">
