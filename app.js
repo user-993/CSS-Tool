@@ -1,4 +1,9 @@
+/*-------------------------------------------------------------------------------------------------------------*/
+/*-----------------------------------------  BORDER SHADOW PAGE  ----------------------------------------------*/
+/*-------------------------------------------------------------------------------------------------------------*/
+
 const inputs = document.querySelectorAll('.variables input');
+
 
 function handleUpdate() {
   const suffix = this.dataset.sizing || '';
@@ -14,6 +19,7 @@ inputs.forEach(input => input.addEventListener('mousemove', handleUpdate));
 function handleNumbers() { /* Přepíše na všech potřebných místech aktuální hodnotu px podle slideru */
   const poradi = this.dataset.order; /* data-order */
   
+  // For border shadow page
   if (poradi === '1') {
     var ys = document.querySelectorAll('.border-shadow-content .demo1');
     ys.forEach(y => y.innerHTML = this.value);
@@ -52,7 +58,7 @@ function handleCopyBtn () {
 
     /*console.log(oblast);*/
     
-    var copyText = document.getElementById("pokus");
+    var copyText = document.getElementById("transfer-station");
     
     copyText.value = text;
     console.log(copyText.value);
@@ -178,7 +184,7 @@ var boxColor = document.getElementById("base3");
 
 // Function for getting the current HEX color code and making the actual box color change
 function getHexBoxColorCode() { 
-  document.getElementById("box-color").value = boxColor.value; /* document.getElementById("shadow").innerHTML = color.value; */
+  document.getElementById("border-shadow-box-color").value = boxColor.value; /* document.getElementById("shadow").innerHTML = color.value; */
 }
 
 // Event listener for input, which triggers the function getHexBoxColorCode
@@ -216,7 +222,13 @@ borderShadowBtn.addEventListener('click', toBorderShadowPage);
 
 
 
+/*-------------------------------------------------------------------------------------------------------------*/
+/*-----------------------------------------  BORDER RADIUS PAGE  ----------------------------------------------*/
+/*-------------------------------------------------------------------------------------------------------------*/
 
+// HANDLE VALUE NUMBERS FOR BORDER RADIUS PAGE
+
+// Targeting all the inputs on the border radius page
 
 
 

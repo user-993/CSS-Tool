@@ -82,10 +82,10 @@
 
         <div class="color-picker">
           <div class="line">
-            <h2>Box Color</h2><input type="text" value="#007000" id="box-color">
+            <h2>Box Color</h2><input type="text" value="#007000" id="border-shadow-box-color">
 
           </div>
-          <input id="base3" type="color" name="box-color" value="#007000">
+          <input id="base3" type="color" name="border-shadow-box-color" value="#007000">
         </div>
         <br>
 
@@ -108,7 +108,7 @@
             box-shadow: <span class="demo1">0</span>px <span class="demo2">0</span>px <span class="demo3">0</span>px <span class="demo4">0</span>px rgba(<span class="demo6">0</span>,<span class="demo7">0</span>,<span class="demo8">0</span>,<span class="demo5">0</span>);
           </h2>
 
-          <input type="text" value="" id="pokus" class="hidden">
+          <input type="text" value="" id="transfer-station" class="hidden">
           
         </div>
 
@@ -121,83 +121,90 @@
       </div>
     </div>
 
+    <!-- BORDER RADIUS PAGE -->
     <div id="border-radius-page" class="border-radius-content hide">
       <div class="variables">
 
+        <!--Sliders for Border Radius Page -->
         <div class="slidecontainer">
           <div class="line">
-            <h2>Horizontal Length</h2><p><span class="demo1">0</span> px</p>
+            <h2>All Corners</h2><p><span class="all-corners-value">0</span> px</p>
           </div>
-          <input type="range" name="offset-x" min="-200" max="200" value="0" class="slider" id="myRange1" data-sizing="px" data-order="1">
+          <input type="range" name="all-corners" min="0" max="200" value="10" class="slider" id="all-corners-input" data-sizing="px" data-order="6">
         </div>
         <br>
 
         <div class="slidecontainer">
           <div class="line">
-            <h2>Vertical Length</h2><p><span class="demo2">0</span> px</p>
+            <h2>Top Left</h2><p><span class="top-left-corner-value">0</span> px</p>
           </div>
-          <input type="range" name="offset-y" min="-200" max="200" value="0" class="slider" id="myRange2" data-sizing="px" data-order="2">
+          <input type="range" name="top-left" min="0" max="200" value="10" class="slider" id="top-left-input" data-sizing="px" data-order="7">
         </div>
         <br>
 
         <div class="slidecontainer">
           <div class="line">
-            <h2>Blur Radius</h2><p><span class="demo3">0</span> px</p>
+            <h2>Top Right</h2><p><span class="top-right-corner-value">0</span> px</p>
           </div>
-          <input type="range" name="blur-radius" min="0" max="300" value="0" class="slider" id="myRange3" data-sizing="px" data-order="3">
+          <input type="range" name="top-right" min="0" max="200" value="10" class="slider" id="top-right-input" data-sizing="px" data-order="8">
         </div>
         <br>
 
         <div class="slidecontainer">
           <div class="line">
-            <h2>Spread Radius</h2><p><span class="demo4">0</span> px</p>
+            <h2>Bottom Left</h2><p><span class="bottom-left-corner-value">0</span> px</p>
           </div>
-          <input type="range" name="spread-radius" min="0" max="200" value="0" class="slider" id="myRange4" data-sizing="px" data-order="4">
+          <input type="range" name="bottom-left" min="0" max="200" value="10" class="slider" id="bottom-left-input" data-sizing="px" data-order="9">
         </div>
         <br>
 
         <div class="slidecontainer">
           <div class="line">
-            <h2>Opacity</h2><p><span id="opa" class="demo5">0.75</span></p>
+            <h2>Bottom Right</h2><p><span class="bottom-right-corner-value">0</span> px</p>
           </div>
-          <input type="range" name="opacity" min="0.00" max="1.00" step="0.01" value="0.75" class="slider" id="myRange5" data-order="5">
+          <input type="range" name="bottom-right" min="0" max="200" value="10" class="slider" id="bottom-right-input" data-sizing="px" data-order="10">
         </div>
         <br>
 
 
 
+
+
+        <div class="slidecontainer">
+          <div class="line">
+            <h2>Border Width</h2><p><span class="border-width-value">0</span> px</p>
+          </div>
+          <input type="range" name="border-width" min="0" max="100" value="0" class="slider" id="border-width-input" data-sizing="px" data-order="">
+        </div>
+        <br>
+
+
+
+        <!-- Color Pickers for Border Radius Page -->
+        <div class="color-picker">
+          <div class="line">
+            <h2>Border Color</h2><input type="text" value="#000000" id="border-color">
+
+          </div>
+          <input id="border-color-input" type="color" name="border-color" value="#000000">
+        </div>
+        <br>
 
         <div class="color-picker">
           <div class="line">
-            <h2>Shadow Color</h2><input type="text" value="#000000" id="shadow">
+            <h2>Box Color</h2><input type="text" value="#007000" id="border-radius-box-color">
 
           </div>
-          <input id="base1" type="color" name="shadow-color" value="#000000">
+          <input id="base3" type="color" name="border-radius-box-color" value="#007000">
         </div>
         <br>
 
-        <div class="color-picker">
-          <div class="line">
-            <h2>Background Color</h2><input type="text" value="#f2f2f2" id="background-color">
-
-          </div>
-          <input id="base2" type="color" name="background-color" value="#f2f2f2">
-        </div>
-        <br>
-
-        <div class="color-picker">
-          <div class="line">
-            <h2>Box Color</h2><input type="text" value="#007000" id="box-color">
-
-          </div>
-          <input id="base3" type="color" name="box-color" value="#007000">
-        </div>
-        <br>
+        
 
       </div>
 
       <div class="box">
-        <div id="big-box">
+        <div id="big-box-2">
 
         </div>
       </div>
@@ -206,10 +213,13 @@
         <div>
           
           <h2 id="textarea">
-            
-            <br />
-            
-            
+            border-radius: <span class="top-left-corner-value">10</span>px <span class="top-right-corner-value">10</span>px <span class="bottom-right-corner-value">10</span>px <span class="bottom-left-corner-value">10</span>px;
+            <br>
+            -moz-border-radius: <span class="top-left-corner-value">10</span>px <span class="top-right-corner-value">10</span>px <span class="bottom-right-corner-value">10</span>px <span class="bottom-left-corner-value">10</span>px;
+            <br>
+            -webkit-border-radius: <span class="top-left-corner-value">10</span>px <span class="top-right-corner-value">10</span>px <span class="bottom-right-corner-value">10</span>px <span class="bottom-left-corner-value">10</span>px;
+            <br>
+            border: <span class="border-width-value">0</span>px solid #000000;
           </h2>
 
           <input type="text" value="" id="pokus" class="hidden">
