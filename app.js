@@ -22,6 +22,7 @@ function handleNumbers() { /* Přepíše na všech potřebných místech aktuál
   // For border shadow page
   if (poradi === '1') {
     var ys = document.querySelectorAll('.border-shadow-content .demo1');
+    
     ys.forEach(y => y.innerHTML = this.value);
   } else if (poradi === '2') {
     var ys = document.querySelectorAll('.border-shadow-content .demo2');
@@ -34,6 +35,23 @@ function handleNumbers() { /* Přepíše na všech potřebných místech aktuál
     ys.forEach(y => y.innerHTML = this.value);
   } else if (poradi === '5') {
     var ys = document.querySelectorAll('.border-shadow-content .demo5');
+    ys.forEach(y => y.innerHTML = this.value);
+
+  } else if (poradi === '6') { // All corners value
+    var ys = document.querySelectorAll('.border-shadow-content .demo5');
+    ys.forEach(y => y.innerHTML = this.value);
+
+  } else if (poradi === '7') {
+    var ys = document.querySelectorAll('.border-radius-content .top-left-corner-value');
+    ys.forEach(y => y.innerHTML = this.value);
+  } else if (poradi === '8') {
+    var ys = document.querySelectorAll('.border-radius-content .top-right-corner-value');
+    ys.forEach(y => y.innerHTML = this.value);
+  } else if (poradi === '9') {
+    var ys = document.querySelectorAll('.border-radius-content .bottom-left-corner-value');
+    ys.forEach(y => y.innerHTML = this.value);
+  } else if (poradi === '10') {
+    var ys = document.querySelectorAll('.border-radius-content .bottom-right-corner-value');
     ys.forEach(y => y.innerHTML = this.value);
   }
 }
@@ -226,12 +244,42 @@ borderShadowBtn.addEventListener('click', toBorderShadowPage);
 /*-----------------------------------------  BORDER RADIUS PAGE  ----------------------------------------------*/
 /*-------------------------------------------------------------------------------------------------------------*/
 
-// HANDLE VALUE NUMBERS FOR BORDER RADIUS PAGE
+// HANDLE UPDATE FOR ALL CORNERS INPUT
+const allCornersInput = document.getElementById('all-corners-input');
+console.log(allCornersInput);
+console.log(allCornersInput);
+
+function handleAllCornersUpdate() {
+  const suffix = this.dataset.sizing || '';
+
+  // Targeting all corner
+  var allCorners = document.querySelectorAll('.border-radius-content .corners-together');
+  // Changes the value of every corner (all the sliders move together)
+  allCorners.forEach(corner => corner.value = this.value);
+  
+  // Changes the style property in every corner
+  document.documentElement.style.setProperty('--top-left', this.value + suffix);
+  document.documentElement.style.setProperty('--top-right', this.value + suffix);
+  document.documentElement.style.setProperty('--bottom-left', this.value + suffix);
+  document.documentElement.style.setProperty('--bottom-right', this.value + suffix);
+
+
+  var allCornersNumbers = document.querySelectorAll('.border-radius-content .all');
+  allCornersNumbers.forEach(cornerNumber => cornerNumber.innerHTML = this.value);
+}
+
+// Event listeners for change and input to trigger the function
+allCornersInput.addEventListener('change', handleAllCornersUpdate);
+allCornersInput.addEventListener('input', handleAllCornersUpdate);
+
+
 
 // Targeting all the inputs on the border radius page
-
-
-
+/*
+var redColors = document.querySelectorAll('.border-shadow-content .demo6');
+redColors.forEach(redColor => redColor.innerHTML = redCode);
+document.documentElement.style.setProperty('--red', redCode);
+*/
 
 
 
@@ -355,31 +403,4 @@ slider4.oninput = function() {
 slider5.oninput = function() {
   output5.forEach(output => output.innerHTML = this.value);
   greenBox.style.boxShadow = `${this.value}px 0px 0px black`;
-}
-
-*/
-
-
-
-
-
-
-
-
-
-
-
-
-/*output1.innerHTML = this.value;*/
-
-/*
-Pro zobrazení aktuální hodnoty u slideru
-
-function updateTextInput(val) {
-  document.getElementById('textInput').value=val; 
-}
-
-<input type="range" name="rangeInput" min="0" max="100" onchange="updateTextInput(this.value);">
-<input type="text" id="textInput" value="">
-
-*/
+} */
