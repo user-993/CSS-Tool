@@ -36,11 +36,9 @@ function handleNumbers() { /* Přepíše na všech potřebných místech aktuál
   } else if (poradi === '5') {
     var ys = document.querySelectorAll('.border-shadow-content .demo5');
     ys.forEach(y => y.innerHTML = this.value);
-
-  } else if (poradi === '6') { // All corners value
-    var ys = document.querySelectorAll('.border-shadow-content .demo5');
+  } else if (poradi === '6') { 
+    var ys = document.querySelectorAll('.border-radius-content .border-width-value');
     ys.forEach(y => y.innerHTML = this.value);
-
   } else if (poradi === '7') {
     var ys = document.querySelectorAll('.border-radius-content .top-left-corner-value');
     ys.forEach(y => y.innerHTML = this.value);
@@ -81,6 +79,26 @@ function handleCopyBtn () {
     copyText.value = text;
     console.log(copyText.value);
     copyText.select();
+    document.execCommand("copy");
+
+  }
+
+  document.getElementById("copy-btn2").onclick = function() {
+    /*
+    var oblast = document.getElementById("textarea");
+    var text = oblast.innerText; /* oblast.textContent ||  */
+    
+    var text2 = document.getElementById("textarea2").innerText;
+    console.log(text2);
+    
+
+    /*console.log(oblast);*/
+    
+    var copyText2 = document.getElementById("transfer-station2");
+    
+    copyText2.value = text2;
+    console.log(copyText2.value);
+    copyText2.select();
     document.execCommand("copy");
 
   }
@@ -197,18 +215,41 @@ backgroundColor.addEventListener("input", getHexBackgroundColorCode);
 
 // BOX COLOR 
 
-// Box color input field
-var boxColor = document.getElementById("base3"); 
+// Box color input field for border shadow page
+var boxColor = document.getElementById("base3");
+// Box color input field for border radius page 
+var boxColorBr = document.getElementById("base4"); 
 
 // Function for getting the current HEX color code and making the actual box color change
 function getHexBoxColorCode() { 
   document.getElementById("border-shadow-box-color").value = boxColor.value; /* document.getElementById("shadow").innerHTML = color.value; */
 }
+// For border radius page
+function getBrHexBoxColorCode() { 
+  document.getElementById("border-radius-box-color").value = boxColorBr.value; /* document.getElementById("shadow").innerHTML = color.value; */
+}
 
 // Event listener for input, which triggers the function getHexBoxColorCode
 boxColor.addEventListener("input", getHexBoxColorCode);
+boxColorBr.addEventListener("input", getBrHexBoxColorCode);
 
+/*-------------------------------------------------------------------------------------------------------------*/
 
+// BORDER COLOR 
+
+// Border color input field
+var borderColor = document.getElementById("border-color-input"); 
+
+// Function for getting the current HEX color code and making the actual border color change
+function getHexBorderColorCode() { 
+  // Changes the HEX border color value in the input field window
+  document.getElementById("border-color").value = borderColor.value; /* document.getElementById("shadow").innerHTML = color.value; */
+  // Changes the HEX border color value on the right side 
+  document.getElementById("border-color-value").innerHTML = borderColor.value; 
+}
+
+// Event listener for input, which triggers the function getHexBorderColorCode
+borderColor.addEventListener("input", getHexBorderColorCode);
 
 /*-------------------------------------------------------------------------------------------------------------*/
 
@@ -263,144 +304,20 @@ function handleAllCornersUpdate() {
   document.documentElement.style.setProperty('--bottom-left', this.value + suffix);
   document.documentElement.style.setProperty('--bottom-right', this.value + suffix);
 
-
+  // Changes all corners together
   var allCornersNumbers = document.querySelectorAll('.border-radius-content .all');
   allCornersNumbers.forEach(cornerNumber => cornerNumber.innerHTML = this.value);
+
+
 }
 
 // Event listeners for change and input to trigger the function
 allCornersInput.addEventListener('change', handleAllCornersUpdate);
 allCornersInput.addEventListener('input', handleAllCornersUpdate);
 
-
-
-// Targeting all the inputs on the border radius page
-/*
-var redColors = document.querySelectorAll('.border-shadow-content .demo6');
-redColors.forEach(redColor => redColor.innerHTML = redCode);
-document.documentElement.style.setProperty('--red', redCode);
-*/
-
-
-
-
-
-
-
-
-
-
-
-/*
-var oblast = document.getElementById("textarea");
-var text = oblast.innerText; /* oblast.textContent ||  */
-/*
-oblast.innerHTML = text;
-
-console.log(oblast);
-console.log(text);
-*/
-
 /*-------------------------------------------------------------------------------------------------------------*/
 
-/* Při kluknutí na tlačítko se zkopíruje obsah textarea do clipboardu */
-/*
-document.getElementById("copy-btn").onclick = function(){
-  document.getElementById("textarea").select();
-  document.execCommand('copy');
-}
-
-/*
-const puvodniHodnota = document.getElementById("base1").value;
-
-
-const barva = document.getElementById("base1");
-const odstin = barva.value;
-console.log(odstin);
 
 
 
 
-
-
-
-/*
-var slider1 = document.getElementById("myRange1");
-var output1 = document.querySelectorAll(".demo1");
-output1.innerHTML = slider1.value;
-
-function handleNumbers() {
-  output1.forEach(output => output.innerHTML = this.value);
-}
-
-slider1.addEventListener('change', handleNumbers);
-slider1.addEventListener('mousemove', handleNumbers);
----------------------------*/
-
-
-
-/*
-
-
-greenBox = document.getElementById('big-box');
-
-
-
-var slider1 = document.getElementById("myRange1");
-var slider2 = document.getElementById("myRange2");
-
-
-var output1 = document.querySelectorAll(".demo1");
-output1.innerHTML = slider1.value;
-var output2 = document.querySelectorAll(".demo2");
-output2.innerHTML = slider2.value;
-
-
-
-
-slider1.oninput = function() {
-  output1.forEach(output => output.innerHTML = this.value);
-  
-  greenBox.style.boxShadow = `${this.value}px 0px 0px black`;
-
-  slider1.value = (this.value);
- 
-  
-} 
-
-console.log(slider1.value);
-/*
-var sliders = document.querySelectorAll(".slider");
-
-console.log(sliders[3]);
-
-
-function makeSlidersWork() {
-  
-}
-
-makeSlidersWork();
-*/
-
-/*
-
-
-
-
-*/
-
-/*
-slider3.oninput = function() {
-  output3.forEach(output => output.innerHTML = this.value);
-  greenBox.style.boxShadow = `${this.value}px 0px 0px black`;
-}
-
-slider4.oninput = function() {
-  output4.forEach(output => output.innerHTML = this.value);
-  greenBox.style.boxShadow = `${this.value}px 0px 0px black`;
-}
-
-slider5.oninput = function() {
-  output5.forEach(output => output.innerHTML = this.value);
-  greenBox.style.boxShadow = `${this.value}px 0px 0px black`;
-} */

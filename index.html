@@ -128,15 +128,15 @@
         <!--Sliders for Border Radius Page -->
         <div class="slidecontainer">
           <div class="line">
-            <h2>All Corners</h2><p><span class="all-corners-value all">0</span> px</p>
+            <h2>All Corners</h2><p><span class="all-corners-value all">10</span> px</p>
           </div>
-          <input type="range" name="all-corners" min="0" max="200" value="10" class="slider" id="all-corners-input" data-sizing="px" data-order="6">
+          <input type="range" name="all-corners" min="0" max="200" value="10" class="slider" id="all-corners-input" data-sizing="px">
         </div>
         <br>
 
         <div class="slidecontainer">
           <div class="line">
-            <h2>Top Left</h2><p><span class="top-left-corner-value all">0</span> px</p>
+            <h2>Top Left</h2><p><span class="top-left-corner-value all">10</span> px</p>
           </div>
           <input type="range" name="top-left" min="0" max="200" value="10" class="slider corners-together" id="top-left-input" data-sizing="px" data-order="7">
         </div>
@@ -144,7 +144,7 @@
 
         <div class="slidecontainer">
           <div class="line">
-            <h2>Top Right</h2><p><span class="top-right-corner-value all">0</span> px</p>
+            <h2>Top Right</h2><p><span class="top-right-corner-value all">10</span> px</p>
           </div>
           <input type="range" name="top-right" min="0" max="200" value="10" class="slider corners-together" id="top-right-input" data-sizing="px" data-order="8">
         </div>
@@ -152,7 +152,7 @@
 
         <div class="slidecontainer">
           <div class="line">
-            <h2>Bottom Left</h2><p><span class="bottom-left-corner-value all">0</span> px</p>
+            <h2>Bottom Left</h2><p><span class="bottom-left-corner-value all">10</span> px</p>
           </div>
           <input type="range" name="bottom-left" min="0" max="200" value="10" class="slider corners-together" id="bottom-left-input" data-sizing="px" data-order="9">
         </div>
@@ -160,7 +160,7 @@
 
         <div class="slidecontainer">
           <div class="line">
-            <h2>Bottom Right</h2><p><span class="bottom-right-corner-value all">0</span> px</p>
+            <h2>Bottom Right</h2><p><span class="bottom-right-corner-value all">10</span> px</p>
           </div>
           <input type="range" name="bottom-right" min="0" max="200" value="10" class="slider corners-together" id="bottom-right-input" data-sizing="px" data-order="10">
         </div>
@@ -168,13 +168,11 @@
 
 
 
-
-
         <div class="slidecontainer">
           <div class="line">
             <h2>Border Width</h2><p><span class="border-width-value">0</span> px</p>
           </div>
-          <input type="range" name="border-width" min="0" max="100" value="0" class="slider" id="border-width-input" data-sizing="px" data-order="">
+          <input type="range" name="border-width" min="0" max="100" value="0" class="slider" id="border-width-input" data-sizing="px" data-order="6">
         </div>
         <br>
 
@@ -195,7 +193,7 @@
             <h2>Box Color</h2><input type="text" value="#007000" id="border-radius-box-color">
 
           </div>
-          <input id="base3" type="color" name="border-radius-box-color" value="#007000">
+          <input id="base4" type="color" name="border-radius-box-color" value="#007000">
         </div>
         <br>
 
@@ -212,15 +210,17 @@
       <div class="output">
         <div>
           
-          <h2 id="textarea">
+          <h2 id="textarea2">
             border-radius: <span class="top-left-corner-value all">10</span>px <span class="top-right-corner-value all">10</span>px <span class="bottom-right-corner-value all">10</span>px <span class="bottom-left-corner-value all">10</span>px;
             <br>
             -moz-border-radius: <span class="top-left-corner-value all">10</span>px <span class="top-right-corner-value all">10</span>px <span class="bottom-right-corner-value all">10</span>px <span class="bottom-left-corner-value all">10</span>px;
             <br>
             -webkit-border-radius: <span class="top-left-corner-value all">10</span>px <span class="top-right-corner-value all">10</span>px <span class="bottom-right-corner-value all">10</span>px <span class="bottom-left-corner-value all">10</span>px;
             <br>
-            border: <span class="border-width-value">0</span>px solid #000000;
+            border: <span class="border-width-value">0</span>px solid <span id="border-color-value">#000000</span>;
           </h2>
+
+          <input type="text" value="" id="transfer-station2" class="hidden">
 
           <input type="text" value="" id="pokus" class="hidden">
           
@@ -230,7 +230,7 @@
         
 
         <div>
-          <button id="copy-btn">Copy</button>
+          <button id="copy-btn2">Copy</button>
         </div>
       </div>
     </div>
