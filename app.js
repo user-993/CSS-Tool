@@ -2,77 +2,78 @@
 /*-----------------------------------------  BORDER SHADOW PAGE  ----------------------------------------------*/
 /*-------------------------------------------------------------------------------------------------------------*/
 
+// Targets all the inputs on both pages
 const inputs = document.querySelectorAll('.variables input');
 
-
+// Function that assigns the current value to the css variables
 function handleUpdate() {
   const suffix = this.dataset.sizing || '';
   document.documentElement.style.setProperty(`--${this.name}`, this.value + suffix);
 }
 
+// Event listeners to trigger the handleUpdate function
 inputs.forEach(input => input.addEventListener('change', handleUpdate));
 inputs.forEach(input => input.addEventListener('mousemove', handleUpdate));
-/* inputs.forEach(input => input.addEventListener('input', handleUpdate)); */
 
 /*-------------------------------------------------------------------------------------------------------------*/
 
-function handleNumbers() { /* Přepíše na všech potřebných místech aktuální hodnotu px podle slideru */
-  const poradi = this.dataset.order; /* data-order */
+// Function that overwrites the HTML to show the current value (takes the value from the slider)
+function handleNumbers() {
+  const order = this.dataset.order; // data-order attribute
   
-  // For border shadow page
-  if (poradi === '1') {
-    var ys = document.querySelectorAll('.border-shadow-content .demo1');
-    
-    ys.forEach(y => y.innerHTML = this.value);
-  } else if (poradi === '2') {
-    var ys = document.querySelectorAll('.border-shadow-content .demo2');
-    ys.forEach(y => y.innerHTML = this.value);
-  } else if (poradi === '3') {
-    var ys = document.querySelectorAll('.border-shadow-content .demo3');
-    ys.forEach(y => y.innerHTML = this.value);
-  } else if (poradi === '4') {
-    var ys = document.querySelectorAll('.border-shadow-content .demo4');
-    ys.forEach(y => y.innerHTML = this.value);
-  } else if (poradi === '5') {
-    var ys = document.querySelectorAll('.border-shadow-content .demo5');
-    ys.forEach(y => y.innerHTML = this.value);
-  } else if (poradi === '6') { 
-    var ys = document.querySelectorAll('.border-radius-content .border-width-value');
-    ys.forEach(y => y.innerHTML = this.value);
-  } else if (poradi === '7') {
-    var ys = document.querySelectorAll('.border-radius-content .top-left-corner-value');
-    ys.forEach(y => y.innerHTML = this.value);
-  } else if (poradi === '8') {
-    var ys = document.querySelectorAll('.border-radius-content .top-right-corner-value');
-    ys.forEach(y => y.innerHTML = this.value);
-  } else if (poradi === '9') {
-    var ys = document.querySelectorAll('.border-radius-content .bottom-left-corner-value');
-    ys.forEach(y => y.innerHTML = this.value);
-  } else if (poradi === '10') {
-    var ys = document.querySelectorAll('.border-radius-content .bottom-right-corner-value');
-    ys.forEach(y => y.innerHTML = this.value);
+  // For border shadow pages
+  if (order === '1') {
+    var classToBeChanged = document.querySelectorAll('.border-shadow-content .demo1');
+    classToBeChanged.forEach(elementWithThisClass => elementWithThisClass.innerHTML = this.value);
+  } else if (order === '2') {
+    var classToBeChanged = document.querySelectorAll('.border-shadow-content .demo2');
+    classToBeChanged.forEach(elementWithThisClass => elementWithThisClass.innerHTML = this.value);
+  } else if (order === '3') {
+    var classToBeChanged = document.querySelectorAll('.border-shadow-content .demo3');
+    classToBeChanged.forEach(elementWithThisClass => elementWithThisClass.innerHTML = this.value);
+  } else if (order === '4') {
+    var classToBeChanged = document.querySelectorAll('.border-shadow-content .demo4');
+    classToBeChanged.forEach(elementWithThisClass => elementWithThisClass.innerHTML = this.value);
+  } else if (order === '5') {
+    var classToBeChanged = document.querySelectorAll('.border-shadow-content .demo5');
+    classToBeChanged.forEach(elementWithThisClass => elementWithThisClass.innerHTML = this.value);
+  } else if (order === '6') { 
+    var classToBeChanged = document.querySelectorAll('.border-radius-content .border-width-value');
+    classToBeChanged.forEach(elementWithThisClass => elementWithThisClass.innerHTML = this.value);
+  } else if (order === '7') {
+    var classToBeChanged = document.querySelectorAll('.border-radius-content .top-left-corner-value');
+    classToBeChanged.forEach(elementWithThisClass => elementWithThisClass.innerHTML = this.value);
+  } else if (order === '8') {
+    var classToBeChanged = document.querySelectorAll('.border-radius-content .top-right-corner-value');
+    classToBeChanged.forEach(elementWithThisClass => elementWithThisClass.innerHTML = this.value);
+  } else if (order === '9') {
+    var classToBeChanged = document.querySelectorAll('.border-radius-content .bottom-left-corner-value');
+    classToBeChanged.forEach(elementWithThisClass => elementWithThisClass.innerHTML = this.value);
+  } else if (order === '10') {
+    var classToBeChanged = document.querySelectorAll('.border-radius-content .bottom-right-corner-value');
+    classToBeChanged.forEach(elementWithThisClass => elementWithThisClass.innerHTML = this.value);
   }
 }
 
+// Event listeners to trigger the handleNumbers function
 inputs.forEach(input => input.addEventListener('change', handleNumbers));
 inputs.forEach(input => input.addEventListener('mousemove', handleNumbers));
 
 /*-------------------------------------------------------------------------------------------------------------*/
 
-/* COPY BTN */
+// COPY BTN
 
-/* Udělá výstup jako text bez html tags */
+// Function that copies the current values to clipboard 
 function handleCopyBtn () {
-  document.getElementById("copy-btn").onclick = function() {
-    /*
-    var oblast = document.getElementById("textarea");
-    var text = oblast.innerText; /* oblast.textContent ||  */
+  // Function is triggered by clicking on the copy button
+  document.getElementById("copy-btn").onclick = function() { 
     
-    var text = document.getElementById("textarea").innerText;
+    // Gets the inner text of the textarea
+    var text = document.getElementById("textarea").innerText; 
     console.log(text);
     
 
-    /*console.log(oblast);*/
+   
     
     var copyText = document.getElementById("transfer-station");
     
@@ -84,15 +85,13 @@ function handleCopyBtn () {
   }
 
   document.getElementById("copy-btn2").onclick = function() {
-    /*
-    var oblast = document.getElementById("textarea");
-    var text = oblast.innerText; /* oblast.textContent ||  */
+    
     
     var text2 = document.getElementById("textarea2").innerText;
     console.log(text2);
     
 
-    /*console.log(oblast);*/
+    
     
     var copyText2 = document.getElementById("transfer-station2");
     
@@ -102,24 +101,11 @@ function handleCopyBtn () {
     document.execCommand("copy");
 
   }
-  
 }
 
+// Event listeners to trigger the handleCopyBtn function 
 inputs.forEach(input => input.addEventListener('change', handleCopyBtn));
 inputs.forEach(input => input.addEventListener('mousemove', handleCopyBtn));
-
-
-
-
-/*
-document.getElementById("copy-btn").onclick = function(){
-
-  document.getElementById("textarea").select();
-  document.execCommand('copy');
-}
-
-*/
-
 
 /*-------------------------------------------------------------------------------------------------------------*/
 
