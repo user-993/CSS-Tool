@@ -114,11 +114,39 @@ var color = document.getElementById("base1");
 var colorCode = color.value;
 console.log(colorCode);
 
+var shadowColor = document.getElementById("shadow");
+
 /* Získám HEX color kód, který se napíše do input okna */
 function getHexColorCode() { 
 document.getElementById("shadow").value = color.value; /* document.getElementById("shadow").innerHTML = color.value; */
 console.log(color.value);
 }
+
+
+
+
+//------------------------- TEST
+function changeColor() {
+  
+  color.value = shadowColor.value; // Changes color in the color input window
+  color.value = color.input;
+  var joj = color.value;
+  
+  
+
+  document.documentElement.style.setProperty('--shadow-color', '#ae8989');
+  
+}
+
+// Event listener for input in the shadow color window
+shadowColor.addEventListener("input", changeColor);
+
+//---------------------------
+
+
+
+
+
 
 /* Udělá z HEX color kódu RGB color kód */
 function getRgbColorCode() { 
@@ -181,6 +209,10 @@ function getRgbColorCode() {
 /* Event listeners */
 color.addEventListener("input", getHexColorCode);
 color.addEventListener("input", getRgbColorCode);
+
+
+
+
 
 /*-------------------------------------------------------------------------------------------------------------*/
 

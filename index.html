@@ -12,8 +12,8 @@
 <body>
   <div class="container">
     <div class="navigation">
-      <button id="border-radius-btn" class="main-btn">Border Radius</button>
       <button id="border-shadow-btn" class="main-btn">Box Shadow</button>
+      <button id="border-radius-btn" class="main-btn">Border Radius</button>
     </div>
 
     <div id="border-shadow-page" class="border-shadow-content">
@@ -64,28 +64,35 @@
 
         <div class="color-picker">
           <div class="line">
-            <h2>Shadow Color</h2><input type="text" value="#000000" id="shadow">
+            <h2>Shadow Color</h2>
+            <div class="color-inputs">
+              <input id="base1" type="color" name="shadow-color" value="#000000"><input type="text" value="#000000" id="shadow" class="textbox">
+            </div>
+            
 
           </div>
-          <input id="base1" type="color" name="shadow-color" value="#000000">
+          
         </div>
         <br>
 
         <div class="color-picker">
           <div class="line">
-            <h2>Background Color</h2><input type="text" value="#f2f2f2" id="background-color">
-
+            <h2>Background Color</h2>
+            <div class="color-inputs">
+              <input id="base2" type="color" name="background-color" value="#f2f2f2"><input type="text" value="#f2f2f2" id="background-color" class="textbox">
+            </div>
           </div>
-          <input id="base2" type="color" name="background-color" value="#f2f2f2">
         </div>
         <br>
 
         <div class="color-picker">
           <div class="line">
-            <h2>Box Color</h2><input type="text" value="#007000" id="border-shadow-box-color">
-
+            <h2>Box Color</h2>
+            <div class="color-inputs">
+              <input id="base3" type="color" name="border-shadow-box-color" value="#8a0000"><input type="text" value="#8a0000" id="border-shadow-box-color" class="textbox">
+            </div>
           </div>
-          <input id="base3" type="color" name="border-shadow-box-color" value="#007000">
+          
         </div>
         <br>
 
@@ -181,23 +188,24 @@
         <!-- Color Pickers for Border Radius Page -->
         <div class="color-picker">
           <div class="line">
-            <h2>Border Color</h2><input type="text" value="#000000" id="border-color">
-
+            <h2>Border Color</h2>
+            <div class="color-inputs">
+              <input id="border-color-input" type="color" name="border-color" value="#000000"><input type="text" value="#000000" id="border-color" class="textbox">
+            </div>
           </div>
-          <input id="border-color-input" type="color" name="border-color" value="#000000">
         </div>
         <br>
 
         <div class="color-picker">
           <div class="line">
-            <h2>Box Color</h2><input type="text" value="#007000" id="border-radius-box-color">
-
+            <h2>Box Color</h2>
+            <div class="color-inputs">
+              <input id="base4" type="color" name="border-radius-box-color" value="#8a0000"><input type="text" value="#8a0000" id="border-radius-box-color" class="textbox">
+            </div>
           </div>
-          <input id="base4" type="color" name="border-radius-box-color" value="#007000">
         </div>
         <br>
 
-        
 
       </div>
 
