@@ -72,16 +72,13 @@ function handleCopyBtn () {
     var text = document.getElementById("textarea").innerText; 
     console.log(text);
     
-
-   
-    
     var copyText = document.getElementById("transfer-station");
     
     copyText.value = text;
     console.log(copyText.value);
+    
     copyText.select();
     document.execCommand("copy");
-
   }
 
   document.getElementById("copy-btn2").onclick = function() {
@@ -109,46 +106,17 @@ inputs.forEach(input => input.addEventListener('mousemove', handleCopyBtn));
 
 /*-------------------------------------------------------------------------------------------------------------*/
 
+// SHADOW COLOR
+var color = document.getElementById("base1");    /*var colorCode = color.value;*/
+var shadowCol = document.getElementById("shadow");
 
-var color = document.getElementById("base1");
-var colorCode = color.value;
-console.log(colorCode);
-
-var shadowColor = document.getElementById("shadow");
 
 /* Získám HEX color kód, který se napíše do input okna */
 function getHexColorCode() { 
 document.getElementById("shadow").value = color.value; /* document.getElementById("shadow").innerHTML = color.value; */
-console.log(color.value);
 }
 
-
-
-
-//------------------------- TEST
-function changeColor() {
-  
-  color.value = shadowColor.value; // Changes color in the color input window
-  color.value = color.input;
-  var joj = color.value;
-  
-  
-
-  document.documentElement.style.setProperty('--shadow-color', '#ae8989');
-  
-}
-
-// Event listener for input in the shadow color window
-shadowColor.addEventListener("input", changeColor);
-
-//---------------------------
-
-
-
-
-
-
-/* Udělá z HEX color kódu RGB color kód */
+/* Udělá z HEX color kódu RGB color kód, který změní CSS variables */
 function getRgbColorCode() { 
   h = color.value;
   
@@ -187,7 +155,6 @@ function getRgbColorCode() {
   const greenCode = barvicky[Object.keys(barvicky)[1]];
   const blueCode = barvicky[Object.keys(barvicky)[2]];
 
-  
   // Přepíše hodnoty rgb napravo
   var redColors = document.querySelectorAll('.border-shadow-content .demo6');
   redColors.forEach(redColor => redColor.innerHTML = redCode);
@@ -201,33 +168,45 @@ function getRgbColorCode() {
   var blueColors = document.querySelectorAll('.border-shadow-content .demo8');
   blueColors.forEach(blueColor => blueColor.innerHTML = blueCode);
   document.documentElement.style.setProperty('--blue', blueCode);
+}
 
+// Function for changing the color value through typing into the input window
+function changeColorThroughInputWindow1() { 
+  color.value = this.value; // Takes the value from the input window and chenges it to color.value 
   
-
+  /* Udělá z HEX color kódu RGB color kód, který změní CSS variables */
+  getRgbColorCode();
 }
 
 /* Event listeners */
 color.addEventListener("input", getHexColorCode);
 color.addEventListener("input", getRgbColorCode);
-
-
-
-
+shadowCol.addEventListener("input", changeColorThroughInputWindow1);
 
 /*-------------------------------------------------------------------------------------------------------------*/
 
 // BACKGROUND COLOR 
 
 // Background color input field
-var backgroundColor = document.getElementById("base2"); 
+var backgroundColor = document.getElementById("base2");
+var backgroundCol = document.getElementById("background-color"); 
 
 // Function for getting the current HEX color code and making the actual background color change
 function getHexBackgroundColorCode() { 
   document.getElementById("background-color").value = backgroundColor.value; /* document.getElementById("shadow").innerHTML = color.value; */
 }
 
+// Function for changing the color value through typing into the input window
+function changeColorThroughInputWindow2() { 
+  backgroundColor.value = backgroundCol.value; // Takes the value from the input window and chenges it to color.value 
+  console.log(backgroundColor.value);
+  
+  document.documentElement.style.setProperty('--background-color', backgroundColor.value);
+}
+
 // Event listener for input, which triggers the function getHexBackgroundColorCode
 backgroundColor.addEventListener("input", getHexBackgroundColorCode);
+backgroundCol.addEventListener("input", changeColorThroughInputWindow2);
 
 /*-------------------------------------------------------------------------------------------------------------*/
 
@@ -235,8 +214,10 @@ backgroundColor.addEventListener("input", getHexBackgroundColorCode);
 
 // Box color input field for border shadow page
 var boxColor = document.getElementById("base3");
+var boxCol = document.getElementById("border-shadow-box-color");
 // Box color input field for border radius page 
 var boxColorBr = document.getElementById("base4"); 
+var boxColBr = document.getElementById("border-radius-box-color");
 
 // Function for getting the current HEX color code and making the actual box color change
 function getHexBoxColorCode() { 
@@ -247,9 +228,25 @@ function getBrHexBoxColorCode() {
   document.getElementById("border-radius-box-color").value = boxColorBr.value; /* document.getElementById("shadow").innerHTML = color.value; */
 }
 
+function changeShadowBoxColorThroughInputWindow() { 
+  boxColor.value = boxCol.value; // Takes the value from the input window and chenges it to color.value 
+  
+  document.documentElement.style.setProperty('--border-shadow-box-color', boxColor.value);
+}
+
+function changeBrBoxColorThroughInputWindow() { 
+  boxColorBr.value = boxColBr.value; // Takes the value from the input window and chenges it to color.value 
+  
+  document.documentElement.style.setProperty('--border-radius-box-color', boxColorBr.value);
+}
+
+
 // Event listener for input, which triggers the function getHexBoxColorCode
 boxColor.addEventListener("input", getHexBoxColorCode);
 boxColorBr.addEventListener("input", getBrHexBoxColorCode);
+// Event listeners for input in the box color window
+boxCol.addEventListener("input", changeShadowBoxColorThroughInputWindow);
+boxColBr.addEventListener("input", changeBrBoxColorThroughInputWindow);
 
 /*-------------------------------------------------------------------------------------------------------------*/
 
@@ -257,6 +254,7 @@ boxColorBr.addEventListener("input", getBrHexBoxColorCode);
 
 // Border color input field
 var borderColor = document.getElementById("border-color-input"); 
+var borderColorInputWindow = document.getElementById("border-color");
 
 // Function for getting the current HEX color code and making the actual border color change
 function getHexBorderColorCode() { 
@@ -266,8 +264,15 @@ function getHexBorderColorCode() {
   document.getElementById("border-color-value").innerHTML = borderColor.value; 
 }
 
+function changeBorderColorThroughInputWindow() { 
+  borderColor.value = borderColorInputWindow.value; // Takes the value from the input window and chenges it to color.value 
+  
+  document.documentElement.style.setProperty('--border-color', borderColor.value);
+}
+
 // Event listener for input, which triggers the function getHexBorderColorCode
 borderColor.addEventListener("input", getHexBorderColorCode);
+borderColorInputWindow.addEventListener("input", changeBorderColorThroughInputWindow);
 
 /*-------------------------------------------------------------------------------------------------------------*/
 

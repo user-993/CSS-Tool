@@ -160,6 +160,7 @@ body {
   justify-content: center;
   align-items: center;
   background: var(--background-color);
+  margin: 0 1rem 0 1rem;
   
 }
 
@@ -168,7 +169,6 @@ body {
   width: 55vh;
   background: var(--border-shadow-box-color);
   box-shadow: var(--offset-x) var(--offset-y) var(--blur-radius) var(--spread-radius) rgba(var(--red), var(--green), var(--blue), var(--opacity));
-  
 }
 
 #big-box-2 {
