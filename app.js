@@ -1,6 +1,6 @@
-/*-------------------------------------------------------------------------------------------------------------*/
-/*-----------------------------------------  BORDER SHADOW PAGE  ----------------------------------------------*/
-/*-------------------------------------------------------------------------------------------------------------*/
+//-------------------------------------------------------------------------------------------------------------//
+//-----------------------------------------  BORDER SHADOW PAGE  ----------------------------------------------//
+//-------------------------------------------------------------------------------------------------------------//
 
 // Targets all the inputs on both pages
 const inputs = document.querySelectorAll('.variables input');
@@ -15,7 +15,7 @@ function handleUpdate() {
 inputs.forEach(input => input.addEventListener('change', handleUpdate));
 inputs.forEach(input => input.addEventListener('mousemove', handleUpdate));
 
-/*-------------------------------------------------------------------------------------------------------------*/
+//-------------------------------------------------------------------------------------------------------------//
 
 // Function that overwrites the HTML to show the current value (takes the value from the slider)
 function handleNumbers() {
@@ -59,7 +59,7 @@ function handleNumbers() {
 inputs.forEach(input => input.addEventListener('change', handleNumbers));
 inputs.forEach(input => input.addEventListener('mousemove', handleNumbers));
 
-/*-------------------------------------------------------------------------------------------------------------*/
+//-------------------------------------------------------------------------------------------------------------//
 
 // COPY BTN
 
@@ -70,12 +70,10 @@ function handleCopyBtn () {
     
     // Gets the inner text of the textarea
     var text = document.getElementById("textarea").innerText; 
-    console.log(text);
     
     var copyText = document.getElementById("transfer-station");
     
     copyText.value = text;
-    console.log(copyText.value);
     
     copyText.select();
     document.execCommand("copy");
@@ -83,20 +81,15 @@ function handleCopyBtn () {
 
   document.getElementById("copy-btn2").onclick = function() {
     
-    
+    // Gets the inner text of the textarea
     var text2 = document.getElementById("textarea2").innerText;
-    console.log(text2);
-    
-
-    
-    
+   
     var copyText2 = document.getElementById("transfer-station2");
     
     copyText2.value = text2;
-    console.log(copyText2.value);
+    
     copyText2.select();
     document.execCommand("copy");
-
   }
 }
 
@@ -104,19 +97,18 @@ function handleCopyBtn () {
 inputs.forEach(input => input.addEventListener('change', handleCopyBtn));
 inputs.forEach(input => input.addEventListener('mousemove', handleCopyBtn));
 
-/*-------------------------------------------------------------------------------------------------------------*/
+//-------------------------------------------------------------------------------------------------------------//
 
 // SHADOW COLOR
-var color = document.getElementById("base1");    /*var colorCode = color.value;*/
+var color = document.getElementById("base1");    
 var shadowCol = document.getElementById("shadow");
 
-
-/* Získám HEX color kód, který se napíše do input okna */
+// Get the HEX color code, that shows in the input window
 function getHexColorCode() { 
-document.getElementById("shadow").value = color.value; /* document.getElementById("shadow").innerHTML = color.value; */
+document.getElementById("shadow").value = color.value;
 }
 
-/* Udělá z HEX color kódu RGB color kód, který změní CSS variables */
+// Changing HEX color code to RGB color code, that changes CSS variables
 function getRgbColorCode() { 
   h = color.value;
   
@@ -135,10 +127,10 @@ function getRgbColorCode() {
     b = "0x" + h[5] + h[6];
   }
   
-  // RGB kód, např. rgb(106,37,37)
+  // RGB code, for example rgb(106,37,37)
   rgbValue = ("rgb("+ +r + "," + +g + "," + +b + ")");
   
-  // Udělá z rgbValue object
+  // Changes rgbValue to an object
   function getRGB(str){
     var match = str.match(/rgba?\((\d{1,3}), ?(\d{1,3}), ?(\d{1,3})\)?(?:, ?(\d(?:\.\d?))\))?/);
     return match ? {
@@ -150,17 +142,16 @@ function getRgbColorCode() {
 
   const barvicky = getRGB(rgbValue);
 
-  // Získám jednotlivé hodnoty barev (red, green, blue) v RGB
+  // Get thw individual color values (red, green, blue) in RGB
   const redCode = barvicky[Object.keys(barvicky)[0]];
   const greenCode = barvicky[Object.keys(barvicky)[1]];
   const blueCode = barvicky[Object.keys(barvicky)[2]];
 
-  // Přepíše hodnoty rgb napravo
+  // Changes the RGB values on the right side
   var redColors = document.querySelectorAll('.border-shadow-content .demo6');
   redColors.forEach(redColor => redColor.innerHTML = redCode);
   document.documentElement.style.setProperty('--red', redCode);
   
-
   var greenColors = document.querySelectorAll('.border-shadow-content .demo7');
   greenColors.forEach(greenColor => greenColor.innerHTML = greenCode);
   document.documentElement.style.setProperty('--green', greenCode);
@@ -174,16 +165,16 @@ function getRgbColorCode() {
 function changeColorThroughInputWindow1() { 
   color.value = this.value; // Takes the value from the input window and chenges it to color.value 
   
-  /* Udělá z HEX color kódu RGB color kód, který změní CSS variables */
+  // Changes HEX color code to RGB color code, that changes the CSS variables
   getRgbColorCode();
 }
 
-/* Event listeners */
+// Event listeners
 color.addEventListener("input", getHexColorCode);
 color.addEventListener("input", getRgbColorCode);
 shadowCol.addEventListener("input", changeColorThroughInputWindow1);
 
-/*-------------------------------------------------------------------------------------------------------------*/
+//-------------------------------------------------------------------------------------------------------------//
 
 // BACKGROUND COLOR 
 
@@ -193,13 +184,12 @@ var backgroundCol = document.getElementById("background-color");
 
 // Function for getting the current HEX color code and making the actual background color change
 function getHexBackgroundColorCode() { 
-  document.getElementById("background-color").value = backgroundColor.value; /* document.getElementById("shadow").innerHTML = color.value; */
+  document.getElementById("background-color").value = backgroundColor.value;
 }
 
 // Function for changing the color value through typing into the input window
 function changeColorThroughInputWindow2() { 
   backgroundColor.value = backgroundCol.value; // Takes the value from the input window and chenges it to color.value 
-  console.log(backgroundColor.value);
   
   document.documentElement.style.setProperty('--background-color', backgroundColor.value);
 }
@@ -208,47 +198,50 @@ function changeColorThroughInputWindow2() {
 backgroundColor.addEventListener("input", getHexBackgroundColorCode);
 backgroundCol.addEventListener("input", changeColorThroughInputWindow2);
 
-/*-------------------------------------------------------------------------------------------------------------*/
+//-------------------------------------------------------------------------------------------------------------//
 
 // BOX COLOR 
 
 // Box color input field for border shadow page
 var boxColor = document.getElementById("base3");
 var boxCol = document.getElementById("border-shadow-box-color");
+
 // Box color input field for border radius page 
 var boxColorBr = document.getElementById("base4"); 
 var boxColBr = document.getElementById("border-radius-box-color");
 
 // Function for getting the current HEX color code and making the actual box color change
 function getHexBoxColorCode() { 
-  document.getElementById("border-shadow-box-color").value = boxColor.value; /* document.getElementById("shadow").innerHTML = color.value; */
+  document.getElementById("border-shadow-box-color").value = boxColor.value; 
 }
 // For border radius page
 function getBrHexBoxColorCode() { 
-  document.getElementById("border-radius-box-color").value = boxColorBr.value; /* document.getElementById("shadow").innerHTML = color.value; */
+  document.getElementById("border-radius-box-color").value = boxColorBr.value;
 }
 
 function changeShadowBoxColorThroughInputWindow() { 
-  boxColor.value = boxCol.value; // Takes the value from the input window and chenges it to color.value 
+  // Takes the value from the input window and changes it to color.value
+  boxColor.value = boxCol.value;  
   
   document.documentElement.style.setProperty('--border-shadow-box-color', boxColor.value);
 }
 
 function changeBrBoxColorThroughInputWindow() { 
-  boxColorBr.value = boxColBr.value; // Takes the value from the input window and chenges it to color.value 
+  // Takes the value from the input window and changes it to color.value 
+  boxColorBr.value = boxColBr.value; 
   
   document.documentElement.style.setProperty('--border-radius-box-color', boxColorBr.value);
 }
 
-
 // Event listener for input, which triggers the function getHexBoxColorCode
 boxColor.addEventListener("input", getHexBoxColorCode);
 boxColorBr.addEventListener("input", getBrHexBoxColorCode);
+
 // Event listeners for input in the box color window
 boxCol.addEventListener("input", changeShadowBoxColorThroughInputWindow);
 boxColBr.addEventListener("input", changeBrBoxColorThroughInputWindow);
 
-/*-------------------------------------------------------------------------------------------------------------*/
+//-------------------------------------------------------------------------------------------------------------//
 
 // BORDER COLOR 
 
@@ -259,7 +252,7 @@ var borderColorInputWindow = document.getElementById("border-color");
 // Function for getting the current HEX color code and making the actual border color change
 function getHexBorderColorCode() { 
   // Changes the HEX border color value in the input field window
-  document.getElementById("border-color").value = borderColor.value; /* document.getElementById("shadow").innerHTML = color.value; */
+  document.getElementById("border-color").value = borderColor.value;
   // Changes the HEX border color value on the right side 
   document.getElementById("border-color-value").innerHTML = borderColor.value; 
 }
@@ -274,7 +267,7 @@ function changeBorderColorThroughInputWindow() {
 borderColor.addEventListener("input", getHexBorderColorCode);
 borderColorInputWindow.addEventListener("input", changeBorderColorThroughInputWindow);
 
-/*-------------------------------------------------------------------------------------------------------------*/
+//-------------------------------------------------------------------------------------------------------------//
 
 // SWITCHING PAGES - BORDER RADIUS x BOX SHADOW
 
@@ -302,16 +295,12 @@ function toBorderShadowPage() {
 borderRadiusBtn.addEventListener('click', toBorderRadiusPage);
 borderShadowBtn.addEventListener('click', toBorderShadowPage);
 
-
-
-/*-------------------------------------------------------------------------------------------------------------*/
-/*-----------------------------------------  BORDER RADIUS PAGE  ----------------------------------------------*/
-/*-------------------------------------------------------------------------------------------------------------*/
+//-------------------------------------------------------------------------------------------------------------//
+//-----------------------------------------  BORDER RADIUS PAGE  ----------------------------------------------//
+//-------------------------------------------------------------------------------------------------------------//
 
 // HANDLE UPDATE FOR ALL CORNERS INPUT
 const allCornersInput = document.getElementById('all-corners-input');
-console.log(allCornersInput);
-console.log(allCornersInput);
 
 function handleAllCornersUpdate() {
   const suffix = this.dataset.sizing || '';
@@ -330,15 +319,13 @@ function handleAllCornersUpdate() {
   // Changes all corners together
   var allCornersNumbers = document.querySelectorAll('.border-radius-content .all');
   allCornersNumbers.forEach(cornerNumber => cornerNumber.innerHTML = this.value);
-
-
 }
 
 // Event listeners for change and input to trigger the function
 allCornersInput.addEventListener('change', handleAllCornersUpdate);
 allCornersInput.addEventListener('input', handleAllCornersUpdate);
 
-/*-------------------------------------------------------------------------------------------------------------*/
+//-------------------------------------------------------------------------------------------------------------//
 
 
 
